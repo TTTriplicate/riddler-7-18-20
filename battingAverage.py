@@ -12,9 +12,14 @@ def shortSeason(realAvg):
     X = n * .4
     p = avg
     q = (1 - avg)
-    print(math.factorial(n))
     #part 1
     result = (math.factorial(n) / (math.factorial(n - X) * math.factorial(X)))
+    
+    #part 2
+    result *= p**X
+
+    #part 3
+    result *= q**(n - X)
     return result
 
 def normalSeason(realAvg):
