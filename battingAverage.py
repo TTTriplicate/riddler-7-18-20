@@ -2,14 +2,14 @@
 
 import math
 
-def shortSeason(realAvg):
+def battingFourHundred(realAvg, seasonLength):
     '''
     60 games, 4 at-bats each
     .35 chance of a hit each at-bat
     looking for hits >= (.4 * (60 * 4) )
     '''
-    n = float(60 * 4)
-    X = n * .4
+    n = seasonLength * 4
+    X = int(round(n * .4, 10))
     p = avg
     q = (1 - avg)
     #part 1
@@ -22,12 +22,8 @@ def shortSeason(realAvg):
     result *= q**(n - X)
     return result
 
-def normalSeason(realAvg):
-
-
-    return result
 
 avg = .350
 
-print(shortSeason(avg))
-#print(normalSeason(avg))
+print(battingFourHundred(avg, 60))
+print(battingFourHundred(avg, 162))
