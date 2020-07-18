@@ -10,7 +10,7 @@ def markovHitStreak(battingAvg, seasonLength):
     M[0, -1] = 1
     perGameHit = perGame(battingAvg)
     M[:-1, 0] = perGameHit
-    for i in range(streak):
+    for i in range(streak-1):
         M[i, i+1] = perGameHit
     np.linalg.matrix_power(M, seasonLength)
 
