@@ -11,5 +11,5 @@ def hitStreak(battingAvg, seasonLength):
     result = math.factorial(4)/math.factorial(3)
     result *= battingAvg
     result *= (1 - battingAvg)**3
-    return result
+    return result**seasonLength
 
