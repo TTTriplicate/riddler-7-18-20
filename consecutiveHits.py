@@ -5,8 +5,16 @@ import numpy as np
 #LINEAR ALGEBRA -- MARKOV CHAIN
 
 def markovHitStreak(battingAvg, seasonLength):
-    M = np.zeros((56, 56))
-    print(M.shape)
+    streak = 57#the streak is 56, need one more row for matrix
+    M = np.zeros((streak, streak))
+    M[0, -1] = 1
+    perGameHit = perGame(battingAvg)
+    M[:-1, 0] = perGameHit
+    for i in range(streak):
+        M[i, i+1] = perGameHit
+    np.linalg.matrix_power(M, seasonLength)
+
+    return M[0, -1]
 
 def perGame(battingAvg):
     result = math.factorial(4)/math.factorial(3)
