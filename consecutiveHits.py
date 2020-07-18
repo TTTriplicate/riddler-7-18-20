@@ -7,14 +7,15 @@ import numpy as np
 def markovHitStreak(battingAvg, seasonLength):
     streak = 57#the streak is 56, need one more row for matrix
     M = np.zeros((streak, streak))
-    M[0, -1] = 1
+    M[-1, -1] = 1
     perGameHit = perGame(battingAvg)
+    print("per game hit odds =", perGameHit)
     M[:-1, 0] = perGameHit
     for i in range(streak-1):
         M[i, i+1] = perGameHit
-    np.linalg.matrix_power(M, seasonLength)
+    result = np.linalg.matrix_power(M, seasonLength)
 
-    return M[0, -1]
+    return result[0, -1]
 
 def perGame(battingAvg):
     result = math.factorial(4)/math.factorial(3)
