@@ -11,7 +11,7 @@ def battingFourHundred(realAvg, seasonLength):
     '''
     total = 0.0
 
-    for i in range(400, 1000):
+    for i in range(400, 1001):
         n = seasonLength * 4
         X = int(round(n * (i / 1000), 0))
         p = realAvg
