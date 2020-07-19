@@ -8,6 +8,7 @@ def battingFourHundred(realAvg, seasonLength):
     realAvg chance of a hit each at-bat
     looking for hits >= (.4 * (60 * 4) )
     math.factorial didn't like X being a float, had to round and cast
+    ((N!) / (N - X)! * (X!)) * p**X * (1 - p)**(N - X)
     '''
     total = 0.0
 
@@ -18,10 +19,8 @@ def battingFourHundred(realAvg, seasonLength):
         q = (1 - realAvg)
         #part 1
         result = (math.factorial(n) / (math.factorial(n - X) * math.factorial(X)))
-    
         #part 2
         result *= p**X
-
         #part 3
         result *= q**(n - X)
         total += result
