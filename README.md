@@ -12,4 +12,4 @@ Essentially, I made a diagonalized matrix representing the possible outcomes at 
 
 #Chance of both
 
-Being two seperate events, I just multiplied them together.  I think this is wrong; having the higher batting average would make the streak more likely, for one thing, but not necessarily the inverse.  Coule fold the .400 into the markov chain and use that instead of the chance based on batting .350.
+Because batting .400 would make the streak more likely, I recalculated the chances of the streak based on that batting average.  Then I multiplied the chances of batting .400 or better by the chances of getting the streak with an average of .400; trying to get the chances at higher batting averages would almost certainly bias my answer as too likely.
