@@ -9,7 +9,7 @@ def markovHitStreak(battingAvg, seasonLength):
     M = np.zeros((streak, streak))
     M[-1, -1] = 1
     perGameHit = perGame(battingAvg)
-#    print("per game hit odds =", perGameHit)
+    print("per game hit odds =", perGameHit)
     M[:-1, 0] = (1 -perGameHit)
     for i in range(streak-1):
         M[i, i+1] = perGameHit
@@ -18,7 +18,11 @@ def markovHitStreak(battingAvg, seasonLength):
     return result[0, -1]
 
 def perGame(battingAvg):
-    result = math.factorial(4)/math.factorial(3)
-    result *= battingAvg
-    result *= (1 - battingAvg)**3
-    return result
+    total = 0.0
+    for i in range(1, 5):
+        result = (math.factorial(4)/(math.factorial(4 - i) * math.factorial(i)))
+        result *= battingAvg**i
+        result *= (1 - battingAvg)**(4 - i)
+        total += result
+        print("Chances of ", i, "Hits:", result)
+    return total
